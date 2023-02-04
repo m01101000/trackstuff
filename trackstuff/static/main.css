@@ -1,0 +1,30 @@
+html {	
+	background-color: black;
+}
+
+.übersicht {
+	background-color: gray;
+	width: 90%;
+	height: 20%;
+	text-align: center;
+	margin: 2% auto;
+}
+
+.übersicht div{
+	text-align: left;
+	margin-left: 2%;
+}
+
+.icon{
+	width: 15%;
+	height: 15%;
+}
+
+.sportdoku {
+	background-color: rgba(211, 211, 211, 0.158);
+	width: 90%;
+	height: 20%;
+	text-align: left;
+	margin: 2% auto;
+	color: lightgray;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>MH19</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css')}}">
+    <meta http-equiv="refresh" content="20">
+
+</head>
+<body>
+
+    <div class="übersicht">
+        
+        {{aktuellesDatum}}
+
+        <div id="content"></div>
+
+        <script>
+            var icon = document.getElementById('content');
+            var content;
+            a = '{{ icon }}';
+            if  (a == "icon1") {
+                content = "<img class='icon' id='icon1' src='{{ url_for('static', filename='icons/gym1.png')}}''></img>";
+            } else {
+                content = "<img class='icon' id='icon1' src='{{ url_for('static', filename='icons/gym.png')}}''></img>";
+            }
+            icon.insertAdjacentHTML('afterbegin', content);
+        </script>
+        <br>
+
+    </div>
+
+    <div class="sportdoku">
+
+        <br>
+            <form method="post">
+
+                &nbsp;&nbsp;&nbsp;<input name="Datum" method="GET" type="text"/>
+                &nbsp;<input name="Aktivität" method="GET" type="text"/>
+                &nbsp;<input name="Zeit" method="GET" type="number" min="0"/>
+                &nbsp;<input name="submit" type="submit" value="Daten absenden"/>
+
+            </form>
+        <br>
+
+        <label>&nbsp;&nbsp;&nbsp;Sport:</label>
+
+        <br>
+
+        <table name="sportdatensätze" method="GET" action="{{ url_for('home') }}">
+            <tr>
+                {% for sport in sport[0:] %}
+                <br>
+                    <tr value="{{sport}}">
+                        &nbsp;&nbsp;&nbsp;{{sport[0]}}&nbsp;&nbsp;&nbsp;{{sport[1]}}&nbsp;&nbsp;&nbsp;{{sport[2]}}
+                    </tr>
+                <br>
+                {% endfor %}
+            </tr>
+            <br>
+        </table>
+
+    </div>
+
+</body>
+</html>
